@@ -2,8 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-local_backend: true
-
 site_url: https://cool-kashata-851a19.netlify.app
 display_url: https://cool-kashata-851a19.netlify.app
 
