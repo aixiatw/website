@@ -12,11 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "@tinacms/astro": "^0.0.1",
     "astro": "^6.3.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "@tailwindcss/vite": "^4.3.0",
     "tailwindcss": "^4.3.0"
   }
 }
