@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const recentPosts = [
+  {
+    title: '產前檢查的重要性',
+    excerpt: '了解產前檢查的各個階段與項目，守護母嬰健康...',
+    date: '2025/01/15',
+    slug: 'prenatal-care'
+  },
+  {
+    title: '更年期症候群的日常照護',
+    excerpt: '面對更年期的不適，從生活調整開始著手...',
+    date: '2025/01/08',
+    slug: 'menopause-care'
+  },
+  {
+    title: '婦科腫瘤的早期發現',
+    excerpt: '定期檢查是預防婦科腫瘤的關鍵...',
+    date: '2025/01/01',
+    slug: 'gynecologic-tumor'
+  }
+]
+---
+
+<Layout title="吳文綺醫師 - 守護女性健康的婦產科醫師">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3]">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 rounded-full bg-[#D4856A] blur-3xl"></div>
+      <div class="absolute bottom-10 right-20 w-96 h-96 rounded-full bg-[#D4856A] blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 relative">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur px-4 py-2 rounded-full text-[#8B6F5C] text-sm">
+            <span class="w-2 h-2 rounded-full bg-[#D4856A] animate-pulse"></span>
+            國軍花蓮總醫院 婦產科主任
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] leading-tight">
+            吳文綺 醫師
+            <span class="block text-2xl md:text-3xl font-normal mt-2 text-[#8B6F5C]">守護女性健康</span>
+          </h1>
+          <p class="text-lg text-[#8B6F5C] leading-relaxed">
+            專精婦產科領域，透過專業知識與溫暖關懷，為每位女性提供最完善的醫療服務。
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="/about" class="warm-btn inline-flex items-center gap-2">
+              認識醫師
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href="/blog" class="px-6 py-3 rounded-full font-medium border-2 border-[#D4856A] text-[#D4856A] hover:bg-[#D4856A] hover:text-white transition-all duration-300">
+              衛教文章
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5E6D3] flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="w-full h-full bg-gradient-to-br from-[#F5E6D3] to-[#E8D5C4] rounded-2xl flex items-center justify-center">
+                <div class="text-[#8B6F5C]">
+                  <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                  </svg>
+                  <p class="text-sm opacity-75">請上傳醫師照片</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-lg p-4 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-[#D4856A]/10 flex items-center justify-center">
+              <span class="text-[#D4856A] font-bold">20+</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-[#4A3728]">年臨床經驗</p>
+              <p class="text-xs text-[#8B6F5C]">專業婦產科醫師</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#4A3728] mb-4">專業領域</h2>
+        <p class="text-[#8B6F5C] text-lg max-w-2xl mx-auto">豐富的臨床經驗與專業訓練，提供全方位的婦產科醫療服務</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="warm-card text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#4A3728] mb-2">產科服務</h3>
+          <p class="text-[#8B6F5C] text-sm leading-relaxed">產前檢查、高危險妊娠篩檢、孕期照護，從備孕到產後的完整守護</p>
+        </div>
+        <div class="warm-card text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#4A3728] mb-2">婦科手術</h3>
+          <p class="text-[#8B6F5C] text-sm leading-relaxed">微創手術、子宮鏡手術、婦科腫瘤手術，由資深醫師親自執刀</p>
+        </div>
+        <div class="warm-card text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#4A3728] mb-2">一般婦科</h3>
+          <p class="text-[#8B6F5C] text-sm leading-relaxed">月經失調、不孕症諮詢、更年期症候群、尿失禁等各式婦科問題</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Articles -->
+  <section class="py-20 bg-[#FFFAF5]">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#4A3728] mb-2">最新衛教文章</h2>
+          <p class="text-[#8B6F5C]">關心女性健康，分享醫療新知</p>
+        </div>
+        <a href="/blog" class="warm-btn inline-flex items-center gap-2">
+          看更多
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {recentPosts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="warm-card group">
+            <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-[#F5E6D3] to-[#E8D5C4] mb-4 flex items-center justify-center">
+              <svg class="w-12 h-12 text-[#D4856A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+            </div>
+            <p class="text-xs text-[#D4856A] mb-2">{post.date}</p>
+            <h3 class="text-lg font-semibold text-[#4A3728] mb-2 group-hover:text-[#D4856A] transition-colors">{post.title}</h3>
+            <p class="text-sm text-[#8B6F5C] leading-relaxed">{post.excerpt}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-[#D4856A] to-[#c06f54]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">需要預約門診嗎？</h2>
+      <p class="text-white/90 text-lg mb-8">歡迎透過國軍花蓮總醫院官方掛號系統進行預約</p>
+      <a href="https://reg.805.mnd.gov.tw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-[#D4856A] px-8 py-4 rounded-full font-semibold hover:bg-[#FFFAF5] transition-colors">
+        前往掛號
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

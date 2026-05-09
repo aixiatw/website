@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-bg: #FFFAF5;
+  --color-warm-cream: #F5E6D3;
+  --color-warm-coral: #D4856A;
+  --color-warm-brown: #8B6F5C;
+  --color-warm-text: #4A3728;
+  --color-warm-light: #FDF8F3;
+}
+
+body {
+  background-color: #FFFAF5;
+  color: #4A3728;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+@layer components {
+  .warm-card {
+    @apply bg-white rounded-2xl shadow-sm p-6 transition-all duration-300;
+    box-shadow: 0 2px 16px rgba(139, 111, 92, 0.08);
+  }
+  .warm-card:hover {
+    box-shadow: 0 8px 32px rgba(139, 111, 92, 0.14);
+    transform: translateY(-2px);
+  }
+  .warm-btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+    background-color: #D4856A;
+    color: white;
+  }
+  .warm-btn:hover {
+    background-color: #c06f54;
+    transform: translateY(-1px);
+  }
+}

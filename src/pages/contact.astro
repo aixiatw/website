@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="聯絡方式 - 吳文綺醫師" description="吳文綺醫師的聯絡方式與門診資訊">
+  <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-4">聯絡方式</h1>
+        <p class="text-[#8B6F5C] text-lg">歡迎透過以下方式與我們聯繫</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- 掛號資訊 -->
+        <div class="warm-card">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center">
+              <svg class="w-7 h-7 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-[#4A3728]">門診掛號</h2>
+          </div>
+          <div class="space-y-3 text-[#8B6F5C]">
+            <p>如需預約門診，請使用國軍花蓮總醫院官方掛號系統。</p>
+            <a href="https://reg.805.mnd.gov.tw/" target="_blank" rel="noopener noreferrer" class="warm-btn inline-flex items-center gap-2 mt-2">
+              前往掛號
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 醫院資訊 -->
+        <div class="warm-card">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center">
+              <svg class="w-7 h-7 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-[#4A3728]">國軍花蓮總醫院</h2>
+          </div>
+          <div class="space-y-3 text-[#8B6F5C]">
+            <p class="flex items-start gap-2">
+              <span class="text-[#D4856A] mt-1">●</span>
+              <span>北埔總院區：花蓮縣新城鄉嘉里村嘉里路163號</span>
+            </p>
+            <p class="flex items-start gap-2">
+              <span class="text-[#D4856A] mt-1">●</span>
+              <span>電話：(03)826-0601 / 826-3151</span>
+            </p>
+            <p class="flex items-start gap-2">
+              <span class="text-[#D4856A] mt-1">●</span>
+              <span>婦產科門診，歡迎提前預約</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 交通指引 -->
+        <div class="warm-card md:col-span-2">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center">
+              <svg class="w-7 h-7 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-[#4A3728]">交通指引</h2>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-[#8B6F5C]">
+            <div>
+              <h3 class="font-medium text-[#4A3728] mb-2">向北的路線</h3>
+              <p class="text-sm leading-relaxed">國軍花蓮總醫院位於花蓮縣新城鄉，距離花蓮市區約15分鐘車程，感謝您的蒞臨。</p>
+            </div>
+            <div>
+              <h3 class="font-medium text-[#4A3728] mb-2">大眾運輸</h3>
+              <p class="text-sm leading-relaxed">可搭乘火車至花蓮站，轉乘公車或計程車前往本院。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

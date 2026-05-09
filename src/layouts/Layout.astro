@@ -1,0 +1,59 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = '吳文綺醫師 - 國軍花蓮總醫院婦產科',
+  description = '吳文綺醫師個人品牌形象網站'
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FFFAF5]/90 border-b border-[#F5E6D3]">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#D4856A] flex items-center justify-center text-white font-bold text-lg">
+            吳
+          </div>
+          <span class="font-medium text-[#4A3728] text-lg hidden sm:block">吳文綺 醫師</span>
+        </a>
+        <nav class="flex items-center gap-6">
+          <a href="/" class="text-[#4A3728] hover:text-[#D4856A] transition-colors font-medium">首頁</a>
+          <a href="/about" class="text-[#4A3728] hover:text-[#D4856A] transition-colors font-medium">關於醫師</a>
+          <a href="/blog" class="text-[#4A3728] hover:text-[#D4856A] transition-colors font-medium">衛教文章</a>
+          <a href="/contact" class="text-[#4A3728] hover:text-[#D4856A] transition-colors font-medium">聯絡方式</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-[#F5E6D3] mt-20 py-12">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="mb-4">
+          <span class="text-[#8B6F5C] font-medium text-lg">吳文綺 醫師</span>
+        </div>
+        <p class="text-[#8B6F5C] text-sm mb-2">國軍花蓮總醫院 婦產科主任</p>
+        <p class="text-[#8B6F5C] text-sm">© 2025 吳文綺醫師個人網站. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

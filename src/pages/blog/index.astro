@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+const posts = [
+  {
+    title: '產前檢查的重要性',
+    excerpt: '了解產前檢查的各個階段與項目，從備孕到分娩的完整追蹤，守護母嬰健康。定期產檢能及早發現問題，確保孕期順利。',
+    date: '2025/01/15',
+    category: '孕期照護',
+    slug: 'prenatal-care'
+  },
+  {
+    title: '更年期症候群的日常照護',
+    excerpt: '面對更年期的不適，從生活調整開始著手。了解熱潮紅、情緒波動等常見症狀的應對方法，讓更年期也能过得舒適自在。',
+    date: '2025/01/08',
+    category: '更年期',
+    slug: 'menopause-care'
+  },
+  {
+    title: '婦科腫瘤的早期發現',
+    excerpt: '定期檢查是預防婦科腫瘤的關鍵。了解常見症狀與篩檢方式，透過早期發現、早期治療，大幅提昇治療成功率。',
+    date: '2025/01/01',
+    category: '疾病防治',
+    slug: 'gynecologic-tumor'
+  },
+  {
+    title: '月經失調的常見原因',
+    excerpt: '月經週期紊亂、經血量異常可能是身體發出的警訊。了解常見原因與何時需要就醫，守護婦科健康。',
+    date: '2024/12/25',
+    category: '一般婦科',
+    slug: 'menstrual-disorder'
+  },
+  {
+    title: '不孕症檢查與治療方向',
+    excerpt: '面對不孕問題，了解完整的檢查流程與治療選項。從基礎評估到進階療法，找到適合的解決方案。',
+    date: '2024/12/18',
+    category: '不孕症',
+    slug: 'infertility'
+  },
+  {
+    title: '尿失禁的預防與改善',
+    excerpt: '尿失禁是許多女性不敢啟齒的困擾，但其實可以透過訓練與治療獲得改善。了解類型與對應方式。',
+    date: '2024/12/10',
+    category: '一般婦科',
+    slug: 'urinary-incontinence'
+  }
+]
+---
+
+<Layout title="衛教文章 - 吳文綺醫師" description="吳文綺醫師的衛教文章，分享婦產科醫療新知與健康資訊">
+  <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-4">衛教文章</h1>
+        <p class="text-[#8B6F5C] text-lg">關心女性健康，分享醫療新知</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="warm-card group">
+            <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-[#F5E6D3] to-[#E8D5C4] mb-4 flex items-center justify-center overflow-hidden">
+              <svg class="w-12 h-12 text-[#D4856A] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="px-3 py-1 bg-[#D4856A]/10 text-[#D4856A] text-xs rounded-full">{post.category}</span>
+              <span class="text-xs text-[#8B6F5C]">{post.date}</span>
+            </div>
+            <h2 class="text-xl font-semibold text-[#4A3728] mb-2 group-hover:text-[#D4856A] transition-colors">{post.title}</h2>
+            <p class="text-sm text-[#8B6F5C] leading-relaxed">{post.excerpt}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
