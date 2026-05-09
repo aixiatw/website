@@ -1,9 +1,12 @@
 backend:
-  name: github
-  repo: AixiaTW/dr-wu-site
+  name: git-gateway
   branch: main
 
-# 讓 TinaCMS 能用，Dr. Wu 的意思
+local_backend: true
+
+site_url: https://cool-kashata-851a19.netlify.app
+display_url: https://cool-kashata-851a19.netlify.app
+
 media_folder: "src/assets/images"
 public_folder: "/src/assets/images"
 
