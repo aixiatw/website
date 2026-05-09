@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: AixiaTW/dr-wu-site
+  branch: main
+
+# 讓 TinaCMS 能用，Dr. Wu 的意思
+media_folder: "src/assets/images"
+public_folder: "/src/assets/images"
+
+collections:
+  - name: "blog"
+    label: "衛教文章"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "發布日期", name: "date", widget: "datetime" }
+      - { label: "作者", name: "author", widget: "string", default: "吳文綺醫師" }
+      - { label: "分類", name: "category", widget: "string" }
+      - { label: "內容", name: "body", widget: "markdown" }
+      - { label: "圖片", name: "image", widget: "image", required: false }
+      - { label: "摘要", name: "description", widget: "string", required: false }
+      - label: "草稿"
+        name: "draft"
+        widget: "boolean"
+        default: false
