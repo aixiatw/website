@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} - 吳文綺醫師`} description={post.data.description}>
+  <article class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="/blog" class="inline-flex items-center gap-2 text-[#D4856A] hover:text-[#4A3728] mb-8 transition-colors">
+        ← 返回文章列表
+      </a>
+      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 bg-[#D4856A]/10 text-[#D4856A] text-sm rounded-full">{post.data.category}</span>
+          <span class="text-[#8B6F5C] text-sm">{post.data.date.toLocaleDateString('zh-TW')}</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold text-[#4A3728] mb-6">{post.data.title}</h1>
+        <div class="prose prose-lg prose-stone max-w-none">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

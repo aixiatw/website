@@ -1,0 +1,55 @@
+2026-05-10T00:53:37.504590Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2026-05-10T00:53:37.504642Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "/home/aixia/dr-wu-site", pattern: "**/*", negated: false }
+2026-05-10T00:53:37.504707Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2026-05-10T00:53:37.504714Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "/home/aixia/dr-wu-site" }
+2026-05-10T00:53:37.506594Z  INFO discover_sources: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.506627Z  INFO discover_sources:walk_synchronous: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.508848Z  INFO discover_sources:walk_synchronous: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.510150Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/.vscode/extensions.json"
+2026-05-10T00:53:37.510159Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/wrangler.toml"
+2026-05-10T00:53:37.510362Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/.vscode/launch.json"
+2026-05-10T00:53:37.510265Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/pages/contact.astro"
+2026-05-10T00:53:37.510410Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/public/admin/index.html"
+2026-05-10T00:53:37.510441Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/astro.config.mjs"
+2026-05-10T00:53:37.510483Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/README.md"
+2026-05-10T00:53:37.510486Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/pages/blog/index.astro"
+2026-05-10T00:53:37.510500Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/tsconfig.json"
+2026-05-10T00:53:37.510534Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/urinary-incontinence.md"
+2026-05-10T00:53:37.510545Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/pages/about.astro"
+2026-05-10T00:53:37.510550Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/public/admin/config.yml"
+2026-05-10T00:53:37.510585Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/prenatal-care.md"
+2026-05-10T00:53:37.510593Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/public/favicon.svg"
+2026-05-10T00:53:37.510597Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/pages/index.astro"
+2026-05-10T00:53:37.510645Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/menstrual-disorder.md"
+2026-05-10T00:53:37.510653Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/gynecologic-tumor.md"
+2026-05-10T00:53:37.510668Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content.config.ts"
+2026-05-10T00:53:37.510693Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/infertility.md"
+2026-05-10T00:53:37.510704Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/package.json"
+2026-05-10T00:53:37.510703Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/content/blog/menopause-care.md"
+2026-05-10T00:53:37.510738Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/worker.mjs"
+2026-05-10T00:53:37.510761Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/layouts/Layout.astro"
+2026-05-10T00:53:37.510781Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/netlify/functions/identity-gateway.js"
+2026-05-10T00:53:37.515467Z  INFO tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/public/admin/decap-cms.js"
+2026-05-10T00:53:37.515806Z  INFO discover_sources: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.515837Z  INFO extract_candidates: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.515850Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.515859Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.654815Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.655200Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.655215Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.655220Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading 1 file(s)
+2026-05-10T00:53:37.655300Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading "/home/aixia/dr-wu-site/src/styles/global.css"
+2026-05-10T00:53:37.655314Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.655321Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.655326Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.655660Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.655685Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.663843Z  INFO extract_candidates: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.691440Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.691492Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.691500Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.691794Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.692155Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.692170Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: enter
+2026-05-10T00:53:37.692176Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: exit
+2026-05-10T00:53:37.695089Z  INFO get_globs: tailwindcss_oxide::scanner: exit
