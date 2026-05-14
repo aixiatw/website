@@ -5,6 +5,7 @@ author: 吳文綺醫師
 category: 更年期
 description: 了解更年期症狀與日常照護方式，從生活調整開始著手，守護女性健康。
 draft: false
+image: /src/assets/images/menopause-cover.jpg
 ---
 
 更年期是女性卵巢功能退化的自然過程，日常照護核心在於「均衡飲食、規律運動、作息正常、情緒管理」。
