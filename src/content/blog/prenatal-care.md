@@ -1,5 +1,6 @@
 ---
 title: 產前檢查的重要性
+slug: prenatal-care
 date: 2026-05-15
 author: 吳文綺醫師
 category: 產檢
