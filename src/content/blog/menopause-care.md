@@ -1,5 +1,6 @@
 ---
 title: 更年期（約40-60歲）的日常照護
+slug: menopause-care
 date: 2026-05-20
 author: 吳文綺醫師
 category: 更年期
