@@ -1,12 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager - ?單?蝬粹撣怎雯蝡?/title>
+  <title>後台管理 - 吳文綺醫師</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FFFAF5; }
+
+    #login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .login-card h1 {
+      font-size: 1.5rem;
+      color: #4A3728;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .login-card p {
+      color: #8B6F5C;
+      text-align: center;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      color: #4A3728;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #E8D5C4;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #4A3728;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      border-color: #D4856A;
+    }
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #D4856A;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .login-btn:hover { background: #c06f54; }
+    .login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .error-msg {
+      color: #e53e3e;
+      font-size: 0.875rem;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+    #cms-root { display: none; }
+  </style>
 </head>
 <body>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="/admin/decap-cms.js"></script>
+
+<div id="login-screen">
+  <div class="login-card">
+    <h1>後台管理</h1>
+    <p>吳文綺醫師官網 Content Manager</p>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">帳號（Email）</label>
+        <input type="email" id="username" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="password">密碼</label>
+        <input type="password" id="password" placeholder="••••••••" required />
+      </div>
+      <button type="submit" class="login-btn" id="login-btn">登入</button>
+      <p class="error-msg" id="error-msg"></p>
+    </form>
+  </div>
+</div>
+
+<div id="cms-root"></div>
+
+<script>
+  // If already authenticated this session, skip login
+  (function() {
+    const token = sessionStorage.getItem('cms_token');
+    const githubToken = sessionStorage.getItem('github_token');
+    if (token && githubToken) {
+      showCMS(githubToken);
+    }
+  })();
+
+  document.getElementById('login-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('login-btn');
+    const errEl = document.getElementById('error-msg');
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    btn.disabled = true;
+    btn.textContent = '登入中...';
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+
+      if (data.ok) {
+        sessionStorage.setItem('cms_token', data.token);
+        sessionStorage.setItem('github_token', data.githubToken);
+        showCMS(data.githubToken);
+      } else {
+        errEl.textContent = data.error || '帳號或密碼錯誤';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = '登入';
+      }
+    } catch (err) {
+      errEl.textContent = '網路錯誤，請稍後再試';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '登入';
+    }
+  });
+
+  function showCMS(githubToken) {
+    // Pre-populate Decap CMS auth token to skip GitHub login
+    localStorage.setItem('decap-cms-user', JSON.stringify({
+      token: githubToken,
+      backendName: 'github'
+    }));
+
+    // Hide login, show CMS
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('cms-root').style.display = 'block';
+
+    // Dynamically load Decap CMS
+    const script = document.createElement('script');
+    script.src = '/admin/decap-cms.js';
+    document.body.appendChild(script);
+  }
+</script>
+
 </body>
 </html>
