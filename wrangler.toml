@@ -1,6 +1,12 @@
 ﻿name = "website"
 main = "worker.mjs"
 compatibility_date = "2026-05-09"
+account_id = "c7d9d553771298683c109a10529805f7"
+
+routes = [
+  { pattern = "dr-wu.cc", custom_domain = true },
+  { pattern = "www.dr-wu.cc", custom_domain = true }
+]
 
 [assets]
 directory = "./dist"
@@ -9,5 +15,3 @@ binding = "ASSETS"
 [[kv_namespaces]]
 binding = "CONTENT"
 id = "00954cc67610474790579f2d0d10ec4c"
-
-account_id = "c7d9d553771298683c109a10529805f7"

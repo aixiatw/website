@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "國軍花蓮總醫院 婦產科主任",
+    "name": "吳文綺 醫師",
+    "subtitle": "守護女性健康",
+    "description": "專精婦產科領域，透過專業知識與溫暖關懷，為每位女性提供最完善的醫療服務。",
+    "experience_years": "20+",
+    "experience_label": "年臨床經驗",
+    "experience_sublabel": "專業婦產科醫師"
+  },
+  "expertise": {
+    "title": "專業領域",
+    "subtitle": "豐富的臨床經驗與專業訓練，提供全方位的婦產科醫療服務",
+    "services": [
+      {
+        "title": "產科服務",
+        "description": "產前檢查、高危險妊娠篩檢、孕期照護，從備孕到產後的完整守護"
+      },
+      {
+        "title": "婦科手術",
+        "description": "微創手術、子宮鏡手術、婦科腫瘤手術，由資深醫師親自執刀"
+      },
+      {
+        "title": "一般婦科",
+        "description": "月經失調、不孕症諮詢、更年期症候群、尿失禁等各式婦科問題"
+      }
+    ]
+  },
+  "cta": {
+    "title": "需要預約門診嗎？",
+    "description": "歡迎透過國軍花蓮總醫院官方掛號系統進行預約",
+    "button_text": "前往掛號",
+    "button_url": "https://reg.805.mnd.gov.tw/"
+  }
+}

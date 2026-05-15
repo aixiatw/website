@@ -1,0 +1,17 @@
+{
+  "appointment": {
+    "description": "如需預約門診，請使用國軍花蓮總醫院官方掛號系統。",
+    "button_text": "前往掛號",
+    "button_url": "https://reg.805.mnd.gov.tw/"
+  },
+  "hospital": {
+    "name": "國軍花蓮總醫院",
+    "address": "北埔總院區：花蓮縣新城鄉嘉里村嘉里路163號",
+    "phone": "(03)826-0601 / 826-3151",
+    "note": "婦產科門診，歡迎提前預約"
+  },
+  "transportation": {
+    "north_route": "國軍花蓮總醫院位於花蓮縣新城鄉，距離花蓮市區約15分鐘車程，感謝您的蒞臨。",
+    "public_transport": "可搭乘火車至花蓮站，轉乘公車或計程車前往本院。"
+  }
+}

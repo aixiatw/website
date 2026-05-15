@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import data from '../data/contact.json'
 ---
 
 <Layout title="聯絡方式 - 吳文綺醫師" description="吳文綺醫師的聯絡方式與門診資訊">
@@ -22,9 +23,9 @@ import Layout from '../layouts/Layout.astro'
             <h2 class="text-xl font-bold text-[#4A3728]">門診掛號</h2>
           </div>
           <div class="space-y-3 text-[#8B6F5C]">
-            <p>如需預約門診，請使用國軍花蓮總醫院官方掛號系統。</p>
-            <a href="https://reg.805.mnd.gov.tw/" target="_blank" rel="noopener noreferrer" class="warm-btn inline-flex items-center gap-2 mt-2">
-              前往掛號
+            <p>{data.appointment.description}</p>
+            <a href={data.appointment.button_url} target="_blank" rel="noopener noreferrer" class="warm-btn inline-flex items-center gap-2 mt-2">
+              {data.appointment.button_text}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
               </svg>
@@ -40,20 +41,20 @@ import Layout from '../layouts/Layout.astro'
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
             </div>
-            <h2 class="text-xl font-bold text-[#4A3728]">國軍花蓮總醫院</h2>
+            <h2 class="text-xl font-bold text-[#4A3728]">{data.hospital.name}</h2>
           </div>
           <div class="space-y-3 text-[#8B6F5C]">
             <p class="flex items-start gap-2">
               <span class="text-[#D4856A] mt-1">●</span>
-              <span>北埔總院區：花蓮縣新城鄉嘉里村嘉里路163號</span>
+              <span>{data.hospital.address}</span>
             </p>
             <p class="flex items-start gap-2">
               <span class="text-[#D4856A] mt-1">●</span>
-              <span>電話：(03)826-0601 / 826-3151</span>
+              <span>電話：{data.hospital.phone}</span>
             </p>
             <p class="flex items-start gap-2">
               <span class="text-[#D4856A] mt-1">●</span>
-              <span>婦產科門診，歡迎提前預約</span>
+              <span>{data.hospital.note}</span>
             </p>
           </div>
         </div>
@@ -72,11 +73,11 @@ import Layout from '../layouts/Layout.astro'
           <div class="grid md:grid-cols-2 gap-6 text-[#8B6F5C]">
             <div>
               <h3 class="font-medium text-[#4A3728] mb-2">向北的路線</h3>
-              <p class="text-sm leading-relaxed">國軍花蓮總醫院位於花蓮縣新城鄉，距離花蓮市區約15分鐘車程，感謝您的蒞臨。</p>
+              <p class="text-sm leading-relaxed">{data.transportation.north_route}</p>
             </div>
             <div>
               <h3 class="font-medium text-[#4A3728] mb-2">大眾運輸</h3>
-              <p class="text-sm leading-relaxed">可搭乘火車至花蓮站，轉乘公車或計程車前往本院。</p>
+              <p class="text-sm leading-relaxed">{data.transportation.public_transport}</p>
             </div>
           </div>
         </div>

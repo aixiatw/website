@@ -1,28 +1,129 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: aixiatw/website
   branch: main
+  base_url: https://website.aixiatw.workers.dev
+  auth_endpoint: api/auth
 
-site_url: https://cool-kashata-851a19.netlify.app
-display_url: https://cool-kashata-851a19.netlify.app
+site_url: https://dr-wu.cc
+display_url: https://dr-wu.cc
 
-media_folder: "src/assets/images"
-public_folder: "/src/assets/images"
+media_folder: "public/images"
+public_folder: "/images"
 
 collections:
+  - name: "pages"
+    label: "?é¢è¨­å?"
+    files:
+      - name: "homepage"
+        label: "é¦–é?"
+        file: "src/data/homepage.json"
+        fields:
+          - label: "Hero ?€å¡?
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "æ¨™ç??‡å?", name: "badge", widget: "string" }
+              - { label: "?«å¸«å§“å?", name: "name", widget: "string" }
+              - { label: "?¯æ?é¡?, name: "subtitle", widget: "string" }
+              - { label: "ä»‹ç´¹?‡å?", name: "description", widget: "text" }
+              - { label: "ç¶“é?å¹´æ•¸", name: "experience_years", widget: "string" }
+              - { label: "ç¶“é?æ¨™ç±¤", name: "experience_label", widget: "string" }
+              - { label: "ç¶“é??¯æ?ç±?, name: "experience_sublabel", widget: "string" }
+          - label: "å°ˆæ¥­?˜å?"
+            name: "expertise"
+            widget: "object"
+            fields:
+              - { label: "æ¨™é?", name: "title", widget: "string" }
+              - { label: "?¯æ?é¡?, name: "subtitle", widget: "string" }
+              - label: "?å??…ç›®"
+                name: "services"
+                widget: "list"
+                fields:
+                  - { label: "?ç¨±", name: "title", widget: "string" }
+                  - { label: "èªªæ?", name: "description", widget: "text" }
+          - label: "?ç??€å¡?
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "æ¨™é?", name: "title", widget: "string" }
+              - { label: "èªªæ?", name: "description", widget: "string" }
+              - { label: "?‰é??‡å?", name: "button_text", widget: "string" }
+              - { label: "?‰é????", name: "button_url", widget: "string" }
+
+      - name: "about"
+        label: "?œæ–¼?«å¸«"
+        file: "src/data/about.json"
+        fields:
+          - label: "Hero ?€å¡?
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "æ¨™ç??‡å?", name: "badge", widget: "string" }
+              - { label: "?«å¸«å§“å?", name: "name", widget: "string" }
+              - { label: "?·ç¨±", name: "position", widget: "string" }
+              - { label: "ä»‹ç´¹?‡å?", name: "description", widget: "text" }
+              - label: "å°ˆç?è­‰ç…§"
+                name: "certifications"
+                widget: "list"
+                field: { label: "è­‰ç…§", name: "item", widget: "string" }
+          - label: "?¾ä»»"
+            name: "current"
+            widget: "list"
+            field: { label: "?·å?", name: "item", widget: "string" }
+          - label: "å­¸æ­·"
+            name: "education"
+            widget: "list"
+            field: { label: "å­¸æ­·", name: "item", widget: "string" }
+          - label: "ç¶“æ­·"
+            name: "experience"
+            widget: "list"
+            field: { label: "ç¶“æ­·", name: "item", widget: "string" }
+          - label: "å°ˆé•·"
+            name: "specialties"
+            widget: "list"
+            field: { label: "å°ˆé•·", name: "item", widget: "string" }
+
+      - name: "contact"
+        label: "?¯çµ¡?¹å?"
+        file: "src/data/contact.json"
+        fields:
+          - label: "?€è¨ºæ???
+            name: "appointment"
+            widget: "object"
+            fields:
+              - { label: "èªªæ??‡å?", name: "description", widget: "text" }
+              - { label: "?‰é??‡å?", name: "button_text", widget: "string" }
+              - { label: "?‰é????", name: "button_url", widget: "string" }
+          - label: "?«é™¢è³‡è?"
+            name: "hospital"
+            widget: "object"
+            fields:
+              - { label: "?«é™¢?ç¨±", name: "name", widget: "string" }
+              - { label: "?°å?", name: "address", widget: "string" }
+              - { label: "?»è©±", name: "phone", widget: "string" }
+              - { label: "?™è¨»", name: "note", widget: "string" }
+          - label: "äº¤é€šæ?å¼?
+            name: "transportation"
+            widget: "object"
+            fields:
+              - { label: "è·¯ç?èªªæ?", name: "north_route", widget: "text" }
+              - { label: "å¤§çœ¾?‹è¼¸", name: "public_transport", widget: "text" }
+
   - name: "blog"
-    label: "è¡›æ•™æ–‡ç« "
+    label: "è¡›æ??‡ç?"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "æ¨™é¡Œ", name: "title", widget: "string" }
-      - { label: "ç™¼å¸ƒæ—¥æœŸ", name: "date", widget: "datetime" }
-      - { label: "ä½œè€…", name: "author", widget: "string", default: "å³æ–‡ç¶ºé†«å¸«" }
-      - { label: "åˆ†é¡", name: "category", widget: "string" }
-      - { label: "å…§å®¹", name: "body", widget: "markdown" }
-      - { label: "åœ–ç‰‡", name: "image", widget: "image", required: false }
-      - { label: "æ‘˜è¦", name: "description", widget: "string", required: false }
-      - label: "è‰ç¨¿"
+      - { label: "æ¨™é?", name: "title", widget: "string" }
+      - { label: "?¼å??¥æ?", name: "date", widget: "datetime" }
+      - { label: "ä½œè€?, name: "author", widget: "string", default: "?³æ?ç¶ºé†«å¸? }
+      - { label: "?†é?", name: "category", widget: "string" }
+      - { label: "?§å®¹", name: "body", widget: "markdown" }
+      - { label: "?–ç?", name: "image", widget: "image", required: false }
+      - { label: "?˜è?", name: "description", widget: "string", required: false }
+      - label: "?‰ç¨¿"
         name: "draft"
         widget: "boolean"
         default: false

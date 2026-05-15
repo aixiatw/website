@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import data from '../data/about.json'
 ---
 
 <Layout title="關於醫師 - 吳文綺醫師" description="吳文綺醫師的個人經歷、學歷、專長與專業證照">
@@ -13,18 +14,19 @@ import Layout from '../layouts/Layout.astro'
         <div class="space-y-6">
           <div class="inline-flex items-center gap-2 bg-[#D4856A]/10 px-4 py-2 rounded-full text-[#D4856A] text-sm">
             <span class="w-2 h-2 rounded-full bg-[#D4856A]"></span>
-            國軍花蓮總醫院
+            {data.hero.badge}
           </div>
           <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728]">
-            吳文綺 醫師
+            {data.hero.name}
           </h1>
-          <p class="text-xl text-[#D4856A] font-medium">婦產科主任</p>
+          <p class="text-xl text-[#D4856A] font-medium">{data.hero.position}</p>
           <p class="text-[#8B6F5C] text-lg leading-relaxed">
-            專精婦產科領域，透過豐富的臨床經驗與專業訓練，為每位女性提供最完善的醫療服務。
+            {data.hero.description}
           </p>
           <div class="flex flex-wrap gap-3 pt-4">
-            <span class="px-4 py-2 bg-white rounded-full text-sm text-[#8B6F5C] shadow-sm">中華民國婦產科專科醫師</span>
-            <span class="px-4 py-2 bg-white rounded-full text-sm text-[#8B6F5C] shadow-sm">台灣福爾摩莎婦女泌尿醫學會專科醫師</span>
+            {data.hero.certifications.map((cert) => (
+              <span class="px-4 py-2 bg-white rounded-full text-sm text-[#8B6F5C] shadow-sm">{cert}</span>
+            ))}
           </div>
         </div>
       </div>
@@ -42,10 +44,12 @@ import Layout from '../layouts/Layout.astro'
         </h2>
         <div class="warm-card ml-4 border-l-4 border-[#D4856A]">
           <ul class="space-y-2 text-[#8B6F5C]">
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>國軍花蓮總醫院 婦產科主任</span>
-            </li>
+            {data.current.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#D4856A] mt-1">●</span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -58,14 +62,12 @@ import Layout from '../layouts/Layout.astro'
         </h2>
         <div class="warm-card ml-4 border-l-4 border-[#D4856A]">
           <ul class="space-y-2 text-[#8B6F5C]">
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>法堤瑪醫學院 醫學系</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>台灣大學 基因遺傳研究所 碩士班</span>
-            </li>
+            {data.education.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#D4856A] mt-1">●</span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -78,34 +80,12 @@ import Layout from '../layouts/Layout.astro'
         </h2>
         <div class="warm-card ml-4 border-l-4 border-[#D4856A]">
           <ul class="space-y-2 text-[#8B6F5C]">
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>國軍花蓮總醫院 婦產科主治醫師</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>基督教門諾會醫院 主治醫師</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>新光醫院醫學中心 主治醫師</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>新光醫院醫學中心 臨床研究員</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>新光醫院醫學中心 總醫師</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>萬芳醫院醫學中心 血管外科進修</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>哈佛醫學院 淋巴血管外科進修</span>
-            </li>
+            {data.experience.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#D4856A] mt-1">●</span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -118,26 +98,12 @@ import Layout from '../layouts/Layout.astro'
         </h2>
         <div class="warm-card ml-4 border-l-4 border-[#D4856A]">
           <ul class="space-y-2 text-[#8B6F5C]">
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>骨盆腔疼痛及下肢水腫、經痛、產前檢查</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>高危險妊娠、子宮鏡手術、婦科腫瘤手術</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>不規則陰道出血、月經失調、不孕症</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>腹部疼痛、避孕、女性結紮、優生保健諮詢</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>更年期症候群、尿失禁</span>
-            </li>
+            {data.specialties.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#D4856A] mt-1">●</span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
