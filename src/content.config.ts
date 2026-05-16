@@ -9,6 +9,7 @@ const blog = defineCollection({
     author: z.string().default('吳文綺醫師'),
     category: z.string(),
     description: z.string().optional(),
+    image: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

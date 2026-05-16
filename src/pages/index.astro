@@ -101,7 +101,7 @@ const recentPosts = posts
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         {recentPosts.map((post) => (
-          <a href={`/blog/${post.slug}`} class="warm-card group">
+          <a href={`/blog/${post.id}`} class="warm-card group">
             <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-[#F5E6D3] to-[#E8D5C4] mb-4 flex items-center justify-center overflow-hidden">
               {post.data.image ? (
                 <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover" />
