@@ -13,64 +13,64 @@ public_folder: "/images"
 
 collections:
   - name: "pages"
-    label: "?�面設�?"
+    label: "頁面設定"
     files:
       - name: "homepage"
-        label: "首�?"
+        label: "首頁"
         file: "src/data/homepage.json"
         fields:
-          - label: "Hero ?��?
+          - label: "Hero 區塊"
             name: "hero"
             widget: "object"
             fields:
-              - { label: "標�??��?", name: "badge", widget: "string" }
-              - { label: "?�師姓�?", name: "name", widget: "string" }
-              - { label: "?��?�?, name: "subtitle", widget: "string" }
-              - { label: "介紹?��?", name: "description", widget: "text" }
-              - { label: "經�?年數", name: "experience_years", widget: "string" }
-              - { label: "經�?標籤", name: "experience_label", widget: "string" }
-              - { label: "經�??��?�?, name: "experience_sublabel", widget: "string" }
-          - label: "專業?��?"
+              - { label: "標題標籤", name: "badge", widget: "string" }
+              - { label: "醫師姓名", name: "name", widget: "string" }
+              - { label: "副標題", name: "subtitle", widget: "string" }
+              - { label: "介紹文字", name: "description", widget: "text" }
+              - { label: "經歷年數", name: "experience_years", widget: "string" }
+              - { label: "經歷標籤", name: "experience_label", widget: "string" }
+              - { label: "經歷副標籤", name: "experience_sublabel", widget: "string" }
+          - label: "專業服務"
             name: "expertise"
             widget: "object"
             fields:
-              - { label: "標�?", name: "title", widget: "string" }
-              - { label: "?��?�?, name: "subtitle", widget: "string" }
-              - label: "?��??�目"
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "副標題", name: "subtitle", widget: "string" }
+              - label: "服務項目"
                 name: "services"
                 widget: "list"
                 fields:
-                  - { label: "?�稱", name: "title", widget: "string" }
-                  - { label: "說�?", name: "description", widget: "text" }
-          - label: "?��??��?
+                  - { label: "名稱", name: "title", widget: "string" }
+                  - { label: "說明", name: "description", widget: "text" }
+          - label: "行動呼籲"
             name: "cta"
             widget: "object"
             fields:
-              - { label: "標�?", name: "title", widget: "string" }
-              - { label: "說�?", name: "description", widget: "string" }
-              - { label: "?��??��?", name: "button_text", widget: "string" }
-              - { label: "?��????", name: "button_url", widget: "string" }
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "說明", name: "description", widget: "string" }
+              - { label: "按鈕文字", name: "button_text", widget: "string" }
+              - { label: "按鈕連結", name: "button_url", widget: "string" }
 
       - name: "about"
-        label: "?�於?�師"
+        label: "關於醫師"
         file: "src/data/about.json"
         fields:
-          - label: "Hero ?��?
+          - label: "Hero 區塊"
             name: "hero"
             widget: "object"
             fields:
-              - { label: "標�??��?", name: "badge", widget: "string" }
-              - { label: "?�師姓�?", name: "name", widget: "string" }
-              - { label: "?�稱", name: "position", widget: "string" }
-              - { label: "介紹?��?", name: "description", widget: "text" }
-              - label: "專�?證照"
+              - { label: "標題標籤", name: "badge", widget: "string" }
+              - { label: "醫師姓名", name: "name", widget: "string" }
+              - { label: "職稱", name: "position", widget: "string" }
+              - { label: "介紹文字", name: "description", widget: "text" }
+              - label: "專業證照"
                 name: "certifications"
                 widget: "list"
                 field: { label: "證照", name: "item", widget: "string" }
-          - label: "?�任"
+          - label: "現任"
             name: "current"
             widget: "list"
-            field: { label: "?��?", name: "item", widget: "string" }
+            field: { label: "職務", name: "item", widget: "string" }
           - label: "學歷"
             name: "education"
             widget: "list"
@@ -85,45 +85,45 @@ collections:
             field: { label: "專長", name: "item", widget: "string" }
 
       - name: "contact"
-        label: "?�絡?��?"
+        label: "聯絡方式"
         file: "src/data/contact.json"
         fields:
-          - label: "?�診�???
+          - label: "門診掛號"
             name: "appointment"
             widget: "object"
             fields:
-              - { label: "說�??��?", name: "description", widget: "text" }
-              - { label: "?��??��?", name: "button_text", widget: "string" }
-              - { label: "?��????", name: "button_url", widget: "string" }
-          - label: "?�院資�?"
+              - { label: "說明文字", name: "description", widget: "text" }
+              - { label: "按鈕文字", name: "button_text", widget: "string" }
+              - { label: "按鈕連結", name: "button_url", widget: "string" }
+          - label: "醫院資訊"
             name: "hospital"
             widget: "object"
             fields:
-              - { label: "?�院?�稱", name: "name", widget: "string" }
-              - { label: "?��?", name: "address", widget: "string" }
-              - { label: "?�話", name: "phone", widget: "string" }
-              - { label: "?�註", name: "note", widget: "string" }
-          - label: "交通�?�?
+              - { label: "醫院名稱", name: "name", widget: "string" }
+              - { label: "地址", name: "address", widget: "string" }
+              - { label: "電話", name: "phone", widget: "string" }
+              - { label: "備註", name: "note", widget: "string" }
+          - label: "交通指引"
             name: "transportation"
             widget: "object"
             fields:
-              - { label: "路�?說�?", name: "north_route", widget: "text" }
-              - { label: "大眾?�輸", name: "public_transport", widget: "text" }
+              - { label: "路線說明", name: "north_route", widget: "text" }
+              - { label: "大眾運輸", name: "public_transport", widget: "text" }
 
   - name: "blog"
-    label: "衛�??��?"
+    label: "衛教文章"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "標�?", name: "title", widget: "string" }
-      - { label: "?��??��?", name: "date", widget: "datetime" }
-      - { label: "作�?, name: "author", widget: "string", default: "?��?綺醫�? }
-      - { label: "?��?", name: "category", widget: "string" }
-      - { label: "?�容", name: "body", widget: "markdown" }
-      - { label: "?��?", name: "image", widget: "image", required: false }
-      - { label: "?��?", name: "description", widget: "string", required: false }
-      - label: "?�稿"
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "發布日期", name: "date", widget: "datetime" }
+      - { label: "作者", name: "author", widget: "string", default: "吳文綺醫師" }
+      - { label: "分類", name: "category", widget: "string" }
+      - { label: "內容", name: "body", widget: "markdown" }
+      - { label: "封面", name: "image", widget: "image", required: false }
+      - { label: "摘要", name: "description", widget: "string", required: false }
+      - label: "草稿"
         name: "draft"
         widget: "boolean"
         default: false
