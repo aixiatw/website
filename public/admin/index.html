@@ -80,7 +80,7 @@
       text-align: center;
       display: none;
     }
-    #cms-root { display: none; }
+    #nc-root { display: none; }
   </style>
 </head>
 <body>
@@ -104,7 +104,7 @@
   </div>
 </div>
 
-<div id="cms-root"></div>
+<div id="nc-root"></div>
 
 <script>
   // If already authenticated this session, skip login
@@ -162,7 +162,7 @@
 
     // Hide login, show CMS
     document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('cms-root').style.display = 'block';
+    document.getElementById('nc-root').style.display = 'block';
 
     // Dynamically load Decap CMS
     const script = document.createElement('script');
