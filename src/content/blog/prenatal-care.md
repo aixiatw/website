@@ -3,6 +3,7 @@ title: 產前檢查的重要性
 date: 2025-01-15
 author: 吳文綺醫師
 category: 孕期照護
+image: /images/1095-4cd46b275f-1515056043.jpg
 description: 了解產前檢查的各個階段與項目，從備孕到分娩的完整追蹤，守護母嬰健康。定期產檢能及早發現問題，確保孕期順利。
 draft: false
 ---
