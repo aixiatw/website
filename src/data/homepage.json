@@ -1,9 +1,9 @@
 {
   "hero": {
-    "badge": "國軍花蓮總醫院 婦產科主任",
+    "badge": "後山好孕、醫綺搞定！",
     "name": "吳文綺 醫師",
-    "subtitle": "守護女性健康",
-    "description": "專精婦產科領域，透過專業知識與溫暖關懷，為每位女性提供最完善的醫療服務。",
+    "subtitle": "國軍花蓮總醫院 婦產科主任",
+    "description": "專精婦科，溫暖關懷，完善服務。",
     "experience_years": "20+",
     "experience_label": "年臨床經驗",
     "experience_sublabel": "專業婦產科醫師"
@@ -27,7 +27,7 @@
     ]
   },
   "cta": {
-    "title": "需要預約門診嗎？",
+    "title": "預約門診：",
     "description": "歡迎透過國軍花蓮總醫院官方掛號系統進行預約",
     "button_text": "前往掛號",
     "button_url": "https://reg.805.mnd.gov.tw/"
