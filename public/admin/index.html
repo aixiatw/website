@@ -29,7 +29,7 @@
       margin-bottom: 8px;
       text-align: center;
     }
-    .login-card p {
+    .login-card p.subtitle {
       color: #8B6F5C;
       text-align: center;
       margin-bottom: 28px;
@@ -55,9 +55,7 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .form-group input:focus {
-      border-color: #D4856A;
-    }
+    .form-group input:focus { border-color: #D4856A; }
     .login-btn {
       width: 100%;
       padding: 12px;
@@ -80,7 +78,30 @@
       text-align: center;
       display: none;
     }
-    #nc-root { display: none; }
+
+    #loading-screen {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      background: #FFFAF5;
+    }
+    #loading-screen p {
+      color: #8B6F5C;
+      font-size: 1rem;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid #E8D5C4;
+      border-top-color: #D4856A;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #nc-root { min-height: 100vh; }
   </style>
 </head>
 <body>
@@ -88,15 +109,15 @@
 <div id="login-screen">
   <div class="login-card">
     <h1>後台管理</h1>
-    <p>吳文綺醫師官網 Content Manager</p>
+    <p class="subtitle">吳文綺醫師官網 Content Manager</p>
     <form id="login-form">
       <div class="form-group">
         <label for="username">帳號（Email）</label>
-        <input type="email" id="username" placeholder="your@email.com" required />
+        <input type="email" id="username" placeholder="your@email.com" required autocomplete="username" />
       </div>
       <div class="form-group">
         <label for="password">密碼</label>
-        <input type="password" id="password" placeholder="••••••••" required />
+        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password" />
       </div>
       <button type="submit" class="login-btn" id="login-btn">登入</button>
       <p class="error-msg" id="error-msg"></p>
@@ -104,41 +125,55 @@
   </div>
 </div>
 
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <p>正在載入後台，請稍候…</p>
+</div>
+
 <div id="nc-root"></div>
 
 <script>
-  // If already authenticated this session, skip login
-  (function() {
-    const token = sessionStorage.getItem('cms_token');
-    const githubToken = sessionStorage.getItem('github_token');
-    if (token && githubToken) {
-      showCMS(githubToken);
+  var _githubToken = null;
+
+  // Listen for OAuth postMessage from our /api/auth popup
+  window.addEventListener('message', function(e) {
+    if (e.origin === 'https://dr-wu.cc') {
+      var d = e.data || '';
+      if (d.indexOf('authorization:github:success:') === 0) {
+        // CMS will handle this itself; also store for safety
+        try {
+          var info = JSON.parse(d.replace('authorization:github:success:', ''));
+          localStorage.setItem('decap-cms-user', JSON.stringify({
+            token: info.token,
+            backendName: 'github'
+          }));
+        } catch(ex) {}
+      }
     }
-  })();
+  });
 
   document.getElementById('login-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn = document.getElementById('login-btn');
-    const errEl = document.getElementById('error-msg');
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
+    var btn = document.getElementById('login-btn');
+    var errEl = document.getElementById('error-msg');
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value;
 
     btn.disabled = true;
-    btn.textContent = '登入中...';
+    btn.textContent = '登入中…';
     errEl.style.display = 'none';
 
     try {
-      const res = await fetch('/api/login', {
+      var res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username: username, password: password })
       });
-      const data = await res.json();
+      var data = await res.json();
 
       if (data.ok) {
-        sessionStorage.setItem('cms_token', data.token);
-        sessionStorage.setItem('github_token', data.githubToken);
-        showCMS(data.githubToken);
+        _githubToken = data.githubToken;
+        loadCMS();
       } else {
         errEl.textContent = data.error || '帳號或密碼錯誤';
         errEl.style.display = 'block';
@@ -153,21 +188,59 @@
     }
   });
 
-  function showCMS(githubToken) {
-    // Pre-populate Decap CMS auth token to skip GitHub login
-    localStorage.setItem('decap-cms-user', JSON.stringify({
-      token: githubToken,
-      backendName: 'github'
-    }));
-
-    // Hide login, show CMS
+  function loadCMS() {
+    // Hide login, show loading
     document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('nc-root').style.display = 'block';
+    document.getElementById('loading-screen').style.display = 'flex';
 
-    // Dynamically load Decap CMS
-    const script = document.createElement('script');
+    // Pre-populate localStorage so CMS auto-logs in
+    if (_githubToken) {
+      localStorage.setItem('decap-cms-user', JSON.stringify({
+        token: _githubToken,
+        backendName: 'github'
+      }));
+    }
+
+    // Load Decap CMS
+    var script = document.createElement('script');
     script.src = '/admin/decap-cms.js';
+    script.onload = function() {
+      // CMS is loaded - hide loading screen
+      document.getElementById('loading-screen').style.display = 'none';
+
+      // If CMS still shows login button after 2 seconds, auto-click it
+      // (fallback if localStorage token was rejected)
+      setTimeout(autoClickLoginIfNeeded, 2000);
+    };
     document.body.appendChild(script);
+  }
+
+  function autoClickLoginIfNeeded() {
+    // Check if CMS is showing its own login page
+    var nc = document.getElementById('nc-root');
+    if (!nc) return;
+
+    // Look for any button containing "GitHub" text
+    var btns = nc.querySelectorAll('button');
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].textContent.indexOf('GitHub') >= 0 ||
+          btns[i].textContent.indexOf('github') >= 0) {
+        btns[i].click();
+        return;
+      }
+    }
+
+    // Also try links with GitHub
+    var links = nc.querySelectorAll('a');
+    for (var j = 0; j < links.length; j++) {
+      if (links[j].textContent.indexOf('GitHub') >= 0) {
+        links[j].click();
+        return;
+      }
+    }
+
+    // CMS might still be loading, retry once more
+    setTimeout(autoClickLoginIfNeeded, 2000);
   }
 </script>
 

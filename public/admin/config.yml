@@ -2,7 +2,7 @@ backend:
   name: github
   repo: aixiatw/website
   branch: main
-  base_url: https://website.aixiatw.workers.dev
+  base_url: https://dr-wu.cc
   auth_endpoint: api/auth
 
 site_url: https://dr-wu.cc
