@@ -107,6 +107,33 @@ import data from '../data/about.json'
           </ul>
         </div>
       </div>
+
+      <!-- 期刊 -->
+      {data.publications && data.publications.length > 0 && (
+        <div>
+          <h2 class="text-2xl font-bold text-[#4A3728] mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-[#D4856A] flex items-center justify-center text-white text-sm">5</span>
+            期刊
+          </h2>
+          <div class="warm-card ml-4 border-l-4 border-[#D4856A]">
+            <ul class="space-y-4 text-[#8B6F5C]">
+              {data.publications.map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-[#D4856A] mt-1">●</span>
+                  <span>
+                    {item.url ? (
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-[#D4856A] font-medium hover:underline">{item.title}</a>
+                    ) : (
+                      <span class="font-medium">{item.title}</span>
+                    )}
+                    {item.meta && <span class="block text-sm text-[#8B6F5C]/80 mt-1">{item.meta}</span>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 </Layout>

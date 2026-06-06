@@ -83,6 +83,14 @@ collections:
             name: "specialties"
             widget: "list"
             field: { label: "專長", name: "item", widget: "string" }
+          - label: "期刊"
+            name: "publications"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "說明（期刊/年份/作者）", name: "meta", widget: "string", required: false }
+              - { label: "連結", name: "url", widget: "string", required: false }
 
       - name: "contact"
         label: "聯絡方式"
