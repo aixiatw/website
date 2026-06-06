@@ -1,15 +1,14 @@
 {
   "title": "門診時間",
   "subtitle": "歡迎於以下時段前來看診，實際看診時間請以醫院公告為準",
-  "location": "",
+  "location": "花蓮縣新城鄉嘉里村嘉里路163號",
+  "phone": "(03)826-3151",
   "schedule": [
-    { "day": "星期一", "morning": "", "afternoon": "" },
-    { "day": "星期二", "morning": "", "afternoon": "" },
-    { "day": "星期三", "morning": "", "afternoon": "" },
-    { "day": "星期四", "morning": "", "afternoon": "" },
-    { "day": "星期五", "morning": "", "afternoon": "" },
-    { "day": "星期六", "morning": "", "afternoon": "" },
-    { "day": "星期日", "morning": "", "afternoon": "" }
+    { "day": "星期一", "morning": "", "afternoon": "手術", "evening": "" },
+    { "day": "星期二", "morning": "門診", "afternoon": "", "evening": "" },
+    { "day": "星期三", "morning": "", "afternoon": "", "evening": "夜診" },
+    { "day": "星期四", "morning": "門診", "afternoon": "", "evening": "" },
+    { "day": "星期五", "morning": "門診", "afternoon": "手術", "evening": "" }
   ],
   "note": ""
 }

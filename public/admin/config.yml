@@ -98,14 +98,16 @@ collections:
         fields:
           - { label: "頁面標題", name: "title", widget: "string" }
           - { label: "副標題", name: "subtitle", widget: "string", required: false }
-          - { label: "看診地點", name: "location", widget: "string", required: false }
+          - { label: "看診地點（院址）", name: "location", widget: "string", required: false }
+          - { label: "總機電話", name: "phone", widget: "string", required: false }
           - label: "門診時間表"
             name: "schedule"
             widget: "list"
             fields:
               - { label: "星期", name: "day", widget: "string" }
-              - { label: "上午", name: "morning", widget: "string", required: false }
-              - { label: "下午", name: "afternoon", widget: "string", required: false }
+              - { label: "上午（門診/手術/夜診）", name: "morning", widget: "string", required: false }
+              - { label: "下午（門診/手術/夜診）", name: "afternoon", widget: "string", required: false }
+              - { label: "黃昏（門診/手術/夜診）", name: "evening", widget: "string", required: false }
           - { label: "備註", name: "note", widget: "text", required: false }
 
       - name: "contact"
