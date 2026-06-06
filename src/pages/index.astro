@@ -20,10 +20,11 @@ const recentPosts = posts
     <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 relative">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
-          <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur px-4 py-2 rounded-full text-[#8B6F5C] text-sm">
-            <span class="w-2 h-2 rounded-full bg-[#D4856A] animate-pulse"></span>
-            {data.hero.badge}
-          </div>
+          <img
+            src="/images/hero-slogan.png"
+            alt={data.hero.badge}
+            class="w-full max-w-md mix-blend-multiply select-none -ml-1"
+          />
           <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] leading-tight">
             {data.hero.name}
             <span class="block text-2xl md:text-3xl font-normal mt-2 text-[#8B6F5C]">{data.hero.subtitle}</span>
