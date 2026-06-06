@@ -92,6 +92,22 @@ collections:
               - { label: "說明（期刊/年份/作者）", name: "meta", widget: "string", required: false }
               - { label: "連結", name: "url", widget: "string", required: false }
 
+      - name: "clinic"
+        label: "門診時間"
+        file: "src/data/clinic.json"
+        fields:
+          - { label: "頁面標題", name: "title", widget: "string" }
+          - { label: "副標題", name: "subtitle", widget: "string", required: false }
+          - { label: "看診地點", name: "location", widget: "string", required: false }
+          - label: "門診時間表"
+            name: "schedule"
+            widget: "list"
+            fields:
+              - { label: "星期", name: "day", widget: "string" }
+              - { label: "上午", name: "morning", widget: "string", required: false }
+              - { label: "下午", name: "afternoon", widget: "string", required: false }
+          - { label: "備註", name: "note", widget: "text", required: false }
+
       - name: "contact"
         label: "聯絡方式"
         file: "src/data/contact.json"

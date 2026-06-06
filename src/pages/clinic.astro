@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro'
+import data from '../data/clinic.json'
+---
+
+<Layout title="門診時間 - 吳文綺醫師" description="吳文綺醫師的門診時間表與看診地點">
+  <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-4">{data.title}</h1>
+        {data.subtitle && <p class="text-[#8B6F5C] text-lg">{data.subtitle}</p>}
+      </div>
+
+      <!-- 門診時間表 -->
+      <div class="warm-card overflow-hidden p-0">
+        <div class="overflow-x-auto">
+          <table class="w-full text-center border-collapse">
+            <thead>
+              <tr class="bg-[#D4856A] text-white">
+                <th class="py-4 px-4 font-medium text-base">星期</th>
+                <th class="py-4 px-4 font-medium text-base">上午</th>
+                <th class="py-4 px-4 font-medium text-base">下午</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.schedule.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-[#FDF8F3]'}>
+                  <td class="py-4 px-4 font-medium text-[#4A3728] border-t border-[#F5E6D3]">{row.day}</td>
+                  <td class="py-4 px-4 text-[#8B6F5C] border-t border-[#F5E6D3]">{row.morning || '—'}</td>
+                  <td class="py-4 px-4 text-[#8B6F5C] border-t border-[#F5E6D3]">{row.afternoon || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {data.note && (
+        <p class="text-[#8B6F5C] text-sm text-center mt-4">{data.note}</p>
+      )}
+
+      <!-- 看診地點 -->
+      <div class="warm-card mt-8">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center">
+            <svg class="w-7 h-7 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-[#4A3728]">看診地點</h2>
+        </div>
+        <p class="text-[#8B6F5C] flex items-start gap-2">
+          <span class="text-[#D4856A] mt-1">●</span>
+          <span>{data.location || '（地點資訊將盡快更新）'}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
