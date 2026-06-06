@@ -4,7 +4,7 @@
   "location": "花蓮縣新城鄉嘉里村嘉里路163號",
   "phone": "(03)826-3151",
   "schedule": [
-    { "day": "星期一", "morning": "", "afternoon": "手術", "evening": "" },
+    { "day": "星期一", "morning": "手術", "afternoon": "手術", "evening": "" },
     { "day": "星期二", "morning": "門診", "afternoon": "", "evening": "" },
     { "day": "星期三", "morning": "", "afternoon": "", "evening": "夜診" },
     { "day": "星期四", "morning": "門診", "afternoon": "", "evening": "" },
