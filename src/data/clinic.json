@@ -25,20 +25,20 @@
       "day": "星期三",
       "location": "進豐院區",
       "morning": { "label": "", "campus": "", "time": "" },
-      "afternoon": { "label": "門診", "campus": "進豐院區", "time": "14:00 – 17:00" },
-      "evening": { "label": "門診", "campus": "進豐院區", "time": "17:30 – 20:30" }
+      "afternoon": { "label": "門診", "campus": "進豐院區", "time": "" },
+      "evening": { "label": "門診", "campus": "進豐院區", "time": "" }
     },
     {
       "day": "星期四",
       "location": "進豐院區",
-      "morning": { "label": "門診", "campus": "進豐院區", "time": "08:30 – 12:00" },
+      "morning": { "label": "門診", "campus": "進豐院區", "time": "" },
       "afternoon": { "label": "", "campus": "", "time": "" },
       "evening": { "label": "", "campus": "", "time": "" }
     },
     {
       "day": "星期五",
       "location": "進豐院區",
-      "morning": { "label": "門診", "campus": "進豐院區", "time": "08:30 – 12:00" },
+      "morning": { "label": "門診", "campus": "進豐院區", "time": "" },
       "afternoon": { "label": "骨盆腔長期疼痛特別聯合門診", "campus": "進豐院區", "time": "", "note": "第二週五改為" },
       "evening": { "label": "", "campus": "", "time": "" }
     }
