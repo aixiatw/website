@@ -145,6 +145,7 @@ collections:
             fields:
               - { label: "院區名稱", name: "name", widget: "string" }
               - { label: "地址", name: "address", widget: "string", required: false }
+              - { label: "電話", name: "phone", widget: "string", required: false }
 
       - name: "contact"
         label: "聯絡方式"

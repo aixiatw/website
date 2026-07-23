@@ -114,6 +114,7 @@ const labelColor: Record<string, string> = {
                 <span>
                   <span class="font-semibold text-[#4A3728]">{c.name}</span>
                   <span class="block">{c.address}</span>
+                  {c.phone && <span class="block">電話：{c.phone}</span>}
                 </span>
               </li>
             ))}
