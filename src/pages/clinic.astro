@@ -2,93 +2,122 @@
 import Layout from '../layouts/Layout.astro'
 import data from '../data/clinic.json'
 
-const periods = [
-  { key: 'morning', label: '上午' },
-  { key: 'afternoon', label: '下午' },
-  { key: 'evening', label: '黃昏' },
-]
+const periodIcon: Record<string, string> = {
+  morning: '☀️',
+  afternoon: '🌤️',
+  evening: '🌆',
+}
 
-const tagStyle = (v: string) => {
-  if (v === '門診') return 'bg-[#CDE6EC] text-[#3C6E79]'
-  if (v === '手術') return 'bg-[#F6DCC6] text-[#B5703F]'
-  if (v === '夜診') return 'bg-[#DED7EC] text-[#6B5B8C]'
-  return ''
+const cellKind = (label: string) => {
+  if (!label) return 'empty'
+  if (/特別|連合/.test(label)) return 'special'
+  if (/開刀/.test(label)) return 'surgery'
+  return 'clinic'
+}
+
+const tileClass: Record<string, string> = {
+  clinic: 'bg-[#CDE6EC]/60 border border-[#CDE6EC]',
+  surgery: 'bg-[#F6DCC6]/60 border border-[#F0CBA9]',
+  special: 'bg-[#F9EFD9] border border-[#E3C77E]',
+}
+const labelColor: Record<string, string> = {
+  clinic: 'text-[#3C6E79]',
+  surgery: 'text-[#B5703F]',
+  special: 'text-[#9A6B1E]',
 }
 ---
 
 <Layout title="門診時間 - 吳文綺醫師" description="吳文綺醫師的門診時間表與看診地點">
   <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-4">{data.title}</h1>
-        {data.subtitle && <p class="text-[#8B6F5C] text-lg">{data.subtitle}</p>}
+        <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-3">{data.title}</h1>
+        {data.subtitle && <p class="text-[#8B6F5C] text-lg tracking-wide">{data.subtitle}</p>}
       </div>
 
       <!-- 門診時間表 -->
       <div class="warm-card overflow-hidden p-0">
         <div class="overflow-x-auto">
-          <table class="w-full text-center border-collapse">
+          <table class="w-full border-collapse min-w-[720px]">
             <thead>
               <tr class="bg-[#D4856A] text-white">
-                <th class="py-4 px-3 font-medium text-base"></th>
+                <th class="py-4 px-3 font-medium text-base w-32"></th>
                 {data.schedule.map((d) => (
-                  <th class="py-4 px-3 font-medium text-base">{d.day}</th>
+                  <th class="py-4 px-3 font-medium text-lg border-l border-white/20">{d.day}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {periods.map((p, i) => (
+              {data.periods.map((p, i) => (
                 <tr class={i % 2 === 0 ? 'bg-white' : 'bg-[#FDF8F3]'}>
-                  <td class="py-5 px-3 font-medium text-[#4A3728] border-t border-[#F5E6D3] whitespace-nowrap">{p.label}</td>
-                  {data.schedule.map((d) => (
-                    <td class="py-5 px-3 border-t border-[#F5E6D3]">
-                      {d[p.key]
-                        ? <span class={`inline-block px-3 py-1 rounded-full text-sm font-medium ${tagStyle(d[p.key])}`}>{d[p.key]}</span>
-                        : <span class="text-[#C9BBAE]">—</span>}
-                    </td>
-                  ))}
+                  <td class="py-4 px-3 border-t border-[#F5E6D3] align-middle text-center">
+                    <div class="text-2xl leading-none mb-1">{periodIcon[p.key]}</div>
+                    <div class="font-semibold text-[#4A3728]">{p.label}</div>
+                    <div class="text-xs text-[#8B6F5C] mt-1 whitespace-nowrap">{p.time}</div>
+                  </td>
+                  {data.schedule.map((d) => {
+                    const cell = d[p.key]
+                    const kind = cellKind(cell?.label || '')
+                    return (
+                      <td class="py-3 px-2 border-t border-l border-[#F5E6D3] align-middle text-center">
+                        {kind === 'empty' ? (
+                          <span class="text-[#C9BBAE]">—</span>
+                        ) : (
+                          <div class={`mx-auto max-w-[180px] rounded-xl px-3 py-3 ${tileClass[kind]}`}>
+                            {cell.note && <div class="text-[11px] text-[#9A6B1E] mb-1">（{cell.note}）</div>}
+                            <div class={`font-bold leading-snug ${kind === 'special' ? 'text-sm' : 'text-lg'} ${labelColor[kind]}`}>{cell.label}</div>
+                            {cell.campus && <div class="text-xs text-[#8B6F5C] mt-1">{cell.campus}</div>}
+                            {cell.time && <div class="text-xs text-[#8B6F5C] mt-0.5 whitespace-nowrap">{cell.time}</div>}
+                          </div>
+                        )}
+                      </td>
+                    )
+                  })}
                 </tr>
               ))}
+
+              <tr class="bg-[#F5E6D3]/40">
+                <td class="py-4 px-3 border-t border-[#F5E6D3] text-center font-semibold text-[#4A3728]">
+                  <div class="text-xl leading-none mb-1">📍</div>
+                  院區地點
+                </td>
+                {data.schedule.map((d) => (
+                  <td class="py-4 px-2 border-t border-l border-[#F5E6D3] text-center text-[#8B6F5C] font-medium">
+                    <span class="whitespace-nowrap">🏥 {d.location}</span>
+                  </td>
+                ))}
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- 圖例 -->
-      <div class="flex flex-wrap justify-center gap-6 mt-6 text-sm text-[#8B6F5C]">
-        <span class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#CDE6EC]"></span>門診時段</span>
-        <span class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#F6DCC6]"></span>手術時段</span>
-        <span class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#DED7EC]"></span>夜診時段</span>
-      </div>
-
-      {data.note && (
-        <p class="text-[#8B6F5C] text-sm text-center mt-4">{data.note}</p>
-      )}
-
-      <!-- 看診地點 -->
-      <div class="warm-card mt-8">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-14 h-14 rounded-2xl bg-[#D4856A]/10 flex items-center justify-center">
-            <svg class="w-7 h-7 text-[#D4856A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h2 class="text-xl font-bold text-[#4A3728]">看診地點</h2>
+      <!-- 說明 + 院區地址 -->
+      <div class="grid md:grid-cols-2 gap-6 mt-8">
+        <div class="warm-card">
+          <h2 class="text-lg font-bold text-[#4A3728] mb-4">說明</h2>
+          <ul class="space-y-2 text-[#8B6F5C] text-sm">
+            {data.notes.map((n) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#D4856A] mt-1">●</span>
+                <span>{n}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="space-y-3 text-[#8B6F5C]">
-          {data.location && (
-            <p class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>院址：{data.location}</span>
-            </p>
-          )}
-          {data.phone && (
-            <p class="flex items-start gap-2">
-              <span class="text-[#D4856A] mt-1">●</span>
-              <span>總機：{data.phone}</span>
-            </p>
-          )}
+        <div class="warm-card">
+          <h2 class="text-lg font-bold text-[#4A3728] mb-4">院區地址</h2>
+          <ul class="space-y-3 text-[#8B6F5C] text-sm">
+            {data.campuses.map((c) => (
+              <li class="flex items-start gap-3">
+                <span class="text-lg leading-none mt-0.5">🏥</span>
+                <span>
+                  <span class="font-semibold text-[#4A3728]">{c.name}</span>
+                  <span class="block">{c.address}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

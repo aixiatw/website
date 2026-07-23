@@ -1,14 +1,55 @@
 {
   "title": "門診時間",
-  "subtitle": "歡迎於以下時段前來看診，實際看診時間請以醫院公告為準",
-  "location": "花蓮縣新城鄉嘉里村嘉里路163號",
-  "phone": "(03)826-3151",
-  "schedule": [
-    { "day": "星期一", "morning": "手術", "afternoon": "手術", "evening": "" },
-    { "day": "星期二", "morning": "門診", "afternoon": "", "evening": "" },
-    { "day": "星期三", "morning": "", "afternoon": "", "evening": "夜診" },
-    { "day": "星期四", "morning": "門診", "afternoon": "", "evening": "" },
-    { "day": "星期五", "morning": "門診", "afternoon": "手術", "evening": "" }
+  "subtitle": "專業 · 用心 · 守護健康",
+  "periods": [
+    { "key": "morning", "label": "上午", "time": "08:30 – 12:00" },
+    { "key": "afternoon", "label": "下午", "time": "14:00 – 17:30" },
+    { "key": "evening", "label": "黃昏", "time": "17:30 – 20:30" }
   ],
-  "note": ""
+  "schedule": [
+    {
+      "day": "星期一",
+      "location": "北埔總院",
+      "morning": { "label": "開刀", "campus": "北埔總院", "time": "" },
+      "afternoon": { "label": "開刀房", "campus": "北埔總院", "time": "" },
+      "evening": { "label": "", "campus": "", "time": "" }
+    },
+    {
+      "day": "星期二",
+      "location": "北埔總院",
+      "morning": { "label": "門診", "campus": "北埔總院", "time": "" },
+      "afternoon": { "label": "開刀房", "campus": "北埔總院", "time": "" },
+      "evening": { "label": "", "campus": "", "time": "" }
+    },
+    {
+      "day": "星期三",
+      "location": "進豐院區",
+      "morning": { "label": "", "campus": "", "time": "" },
+      "afternoon": { "label": "門診", "campus": "進豐院區", "time": "14:00 – 17:00" },
+      "evening": { "label": "門診", "campus": "進豐院區", "time": "17:30 – 20:30" }
+    },
+    {
+      "day": "星期四",
+      "location": "進豐院區",
+      "morning": { "label": "門診", "campus": "進豐院區", "time": "08:30 – 12:00" },
+      "afternoon": { "label": "", "campus": "", "time": "" },
+      "evening": { "label": "", "campus": "", "time": "" }
+    },
+    {
+      "day": "星期五",
+      "location": "進豐院區",
+      "morning": { "label": "門診", "campus": "進豐院區", "time": "08:30 – 12:00" },
+      "afternoon": { "label": "骨盆腔長期疼痛特別連合門診", "campus": "進豐院區", "time": "14:00 – 17:30", "note": "第二週五改為" },
+      "evening": { "label": "", "campus": "", "time": "" }
+    }
+  ],
+  "notes": [
+    "門診採預約制，請提前預約掛號。",
+    "實際看診時間可能依現場狀況調整，敬請見諒。",
+    "第二週五下午為「骨盆腔長期疼痛特別連合門診」。"
+  ],
+  "campuses": [
+    { "name": "北埔總院", "address": "新竹縣北埔鄉北埔街 XX 號" },
+    { "name": "進豐院區", "address": "新竹市北區進豐街 XX 號" }
+  ]
 }
