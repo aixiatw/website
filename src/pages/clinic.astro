@@ -10,7 +10,7 @@ const periodIcon: Record<string, string> = {
 
 const cellKind = (label: string) => {
   if (!label) return 'empty'
-  if (/特別|連合/.test(label)) return 'special'
+  if (/特別|聯合|連合/.test(label)) return 'special'
   if (/開刀/.test(label)) return 'surgery'
   return 'clinic'
 }
