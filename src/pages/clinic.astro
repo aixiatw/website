@@ -25,6 +25,9 @@ const labelColor: Record<string, string> = {
   surgery: 'text-[#B5703F]',
   special: 'text-[#9A6B1E]',
 }
+
+const campusColor = (name: string) =>
+  ({ '北埔總院': '#B5703F', '進豐院區': '#2F7A5F' } as Record<string, string>)[name] || '#8B6F5C'
 ---
 
 <Layout title="門診時間 - 吳文綺醫師" description="吳文綺醫師的門診時間表與看診地點">
@@ -66,7 +69,7 @@ const labelColor: Record<string, string> = {
                           <div class={`mx-auto max-w-[180px] rounded-xl px-3 py-3 ${tileClass[kind]}`}>
                             {cell.note && <div class="text-[11px] text-[#9A6B1E] mb-1">（{cell.note}）</div>}
                             <div class={`font-bold leading-snug ${kind === 'special' ? 'text-sm' : 'text-lg'} ${labelColor[kind]}`}>{cell.label}</div>
-                            {cell.campus && <div class="text-xs text-[#8B6F5C] mt-1">{cell.campus}</div>}
+                            {cell.campus && <div class="text-xs font-semibold mt-1" style={`color:${campusColor(cell.campus)}`}>{cell.campus}</div>}
                             {cell.time && <div class="text-xs text-[#8B6F5C] mt-0.5 whitespace-nowrap">{cell.time}</div>}
                           </div>
                         )}
@@ -82,8 +85,11 @@ const labelColor: Record<string, string> = {
                   院區地點
                 </td>
                 {data.schedule.map((d) => (
-                  <td class="py-4 px-2 border-t border-l border-[#F5E6D3] text-center text-[#8B6F5C] font-medium">
-                    <span class="whitespace-nowrap">🏥 {d.location}</span>
+                  <td class="py-4 px-2 border-t border-l border-[#F5E6D3] text-center font-semibold">
+                    <span class="inline-flex items-center gap-1.5 whitespace-nowrap" style={`color:${campusColor(d.location)}`}>
+                      <span class="w-2.5 h-2.5 rounded-full" style={`background:${campusColor(d.location)}`}></span>
+                      {d.location}
+                    </span>
                   </td>
                 ))}
               </tr>
@@ -110,9 +116,9 @@ const labelColor: Record<string, string> = {
           <ul class="space-y-3 text-[#8B6F5C] text-sm">
             {data.campuses.map((c) => (
               <li class="flex items-start gap-3">
-                <span class="text-lg leading-none mt-0.5">🏥</span>
+                <span class="w-3 h-3 rounded-full mt-1.5 shrink-0" style={`background:${campusColor(c.name)}`}></span>
                 <span>
-                  <span class="font-semibold text-[#4A3728]">{c.name}</span>
+                  <span class="font-bold" style={`color:${campusColor(c.name)}`}>{c.name}</span>
                   <span class="block">{c.address}</span>
                   {c.phone && <span class="block">電話：{c.phone}</span>}
                 </span>
