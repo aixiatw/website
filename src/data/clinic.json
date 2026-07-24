@@ -2,45 +2,118 @@
   "title": "門診時間",
   "subtitle": "專業 · 用心 · 守護健康",
   "periods": [
-    { "key": "morning", "label": "上午", "time": "08:30 – 12:00" },
-    { "key": "afternoon", "label": "下午", "time": "14:00 – 17:30" },
-    { "key": "evening", "label": "黃昏", "time": "17:30 – 20:30" }
+    {
+      "key": "morning",
+      "label": "上午",
+      "time": "09:00 – 12:00"
+    },
+    {
+      "key": "afternoon",
+      "label": "下午",
+      "time": "14:00 – 17:30"
+    },
+    {
+      "key": "evening",
+      "label": "黃昏",
+      "time": "17:30 – 20:30"
+    }
   ],
   "schedule": [
     {
       "day": "星期一",
       "location": "北埔總院",
-      "morning": { "label": "開刀", "campus": "北埔總院", "time": "" },
-      "afternoon": { "label": "開刀房", "campus": "北埔總院", "time": "" },
-      "evening": { "label": "", "campus": "", "time": "" }
+      "morning": {
+        "label": "開刀",
+        "campus": "北埔總院",
+        "time": ""
+      },
+      "afternoon": {
+        "label": "開刀房",
+        "campus": "北埔總院",
+        "time": ""
+      },
+      "evening": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      }
     },
     {
       "day": "星期二",
       "location": "北埔總院",
-      "morning": { "label": "門診", "campus": "北埔總院", "time": "" },
-      "afternoon": { "label": "開刀房", "campus": "北埔總院", "time": "" },
-      "evening": { "label": "", "campus": "", "time": "" }
+      "morning": {
+        "label": "門診",
+        "campus": "北埔總院",
+        "time": ""
+      },
+      "afternoon": {
+        "label": "開刀房",
+        "campus": "北埔總院",
+        "time": ""
+      },
+      "evening": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      }
     },
     {
       "day": "星期三",
       "location": "進豐院區",
-      "morning": { "label": "", "campus": "", "time": "" },
-      "afternoon": { "label": "門診", "campus": "進豐院區", "time": "" },
-      "evening": { "label": "門診", "campus": "進豐院區", "time": "" }
+      "morning": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      },
+      "afternoon": {
+        "label": "門診",
+        "campus": "進豐院區",
+        "time": ""
+      },
+      "evening": {
+        "label": "門診",
+        "campus": "進豐院區",
+        "time": ""
+      }
     },
     {
       "day": "星期四",
       "location": "進豐院區",
-      "morning": { "label": "門診", "campus": "進豐院區", "time": "" },
-      "afternoon": { "label": "", "campus": "", "time": "" },
-      "evening": { "label": "", "campus": "", "time": "" }
+      "morning": {
+        "label": "門診",
+        "campus": "進豐院區",
+        "time": ""
+      },
+      "afternoon": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      },
+      "evening": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      }
     },
     {
       "day": "星期五",
       "location": "進豐院區",
-      "morning": { "label": "門診", "campus": "進豐院區", "time": "" },
-      "afternoon": { "label": "骨盆腔長期疼痛特別聯合門診", "campus": "進豐院區", "time": "", "note": "第二週五改為" },
-      "evening": { "label": "", "campus": "", "time": "" }
+      "morning": {
+        "label": "門診",
+        "campus": "進豐院區",
+        "time": ""
+      },
+      "afternoon": {
+        "label": "骨盆腔長期疼痛特別聯合門診",
+        "campus": "進豐院區",
+        "time": "",
+        "note": "第二週五改為"
+      },
+      "evening": {
+        "label": "",
+        "campus": "",
+        "time": ""
+      }
     }
   ],
   "notes": [
@@ -49,7 +122,15 @@
     "第二週五下午為「骨盆腔長期疼痛特別聯合門診」。"
   ],
   "campuses": [
-    { "name": "北埔總院", "address": "971 花蓮縣新城鄉嘉里村嘉里路163號", "phone": "03-8263151#226" },
-    { "name": "進豐院區", "address": "970 花蓮市進豐街100號", "phone": "03-8335730" }
+    {
+      "name": "北埔總院",
+      "address": "971 花蓮縣新城鄉嘉里村嘉里路163號",
+      "phone": "03-8263151#226"
+    },
+    {
+      "name": "進豐院區",
+      "address": "970 花蓮市進豐街100號",
+      "phone": "03-8335730"
+    }
   ]
 }
