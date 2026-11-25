@@ -31,9 +31,9 @@ const campusColor = (name: string) =>
 ---
 
 <Layout title="門診時間 - 吳文綺醫師" description="吳文綺醫師的門診時間表與看診地點">
-  <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-16">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-12">
+  <section class="bg-gradient-to-br from-[#FFFAF5] via-[#FDF8F3] to-[#F5E6D3] py-8 md:py-16">
+    <div class="max-w-5xl mx-auto px-2 md:px-4">
+      <div class="text-center mb-6 md:mb-12">
         <h1 class="text-4xl md:text-5xl font-bold text-[#4A3728] mb-3">{data.title}</h1>
         {data.subtitle && <p class="text-[#8B6F5C] text-lg tracking-wide">{data.subtitle}</p>}
       </div>
@@ -41,36 +41,36 @@ const campusColor = (name: string) =>
       <!-- 門診時間表 -->
       <div class="warm-card overflow-hidden p-0">
         <div class="overflow-x-auto">
-          <table class="w-full border-collapse min-w-[720px]">
+          <table class="w-full border-collapse table-fixed md:table-auto md:min-w-[720px]">
             <thead>
               <tr class="bg-[#D4856A] text-white">
-                <th class="py-4 px-3 font-medium text-lg w-32">時段</th>
+                <th class="py-3 px-0.5 md:py-4 md:px-3 font-medium text-[13px] md:text-lg w-[62px] md:w-32">時段</th>
                 {data.schedule.map((d) => (
-                  <th class="py-4 px-3 font-medium text-lg border-l border-white/20">{d.day}</th>
+                  <th class="py-3 px-0.5 md:py-4 md:px-3 font-medium text-[13px] md:text-lg border-l border-white/20">{d.day}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {data.periods.map((p, i) => (
                 <tr class={i % 2 === 0 ? 'bg-white' : 'bg-[#FDF8F3]'}>
-                  <td class="py-4 px-3 border-t border-[#F5E6D3] align-middle text-center">
-                    <div class="text-2xl leading-none mb-1">{periodIcon[p.key]}</div>
-                    <div class="font-semibold text-[#4A3728]">{p.label}</div>
-                    <div class="text-xs text-[#8B6F5C] mt-1 whitespace-nowrap">{p.time}</div>
+                  <td class="py-3 px-0.5 md:py-4 md:px-3 border-t border-[#F5E6D3] align-middle text-center">
+                    <div class="text-xl md:text-2xl leading-none mb-1">{periodIcon[p.key]}</div>
+                    <div class="text-sm md:text-base font-semibold text-[#4A3728]">{p.label}</div>
+                    <div class="text-[11px] md:text-xs text-[#8B6F5C] mt-1 md:whitespace-nowrap">{p.time}</div>
                   </td>
                   {data.schedule.map((d) => {
                     const cell = d[p.key]
                     const kind = cellKind(cell?.label || '')
                     return (
-                      <td class="py-3 px-2 border-t border-l border-[#F5E6D3] align-middle text-center">
+                      <td class="py-2 px-0.5 md:py-3 md:px-2 border-t border-l border-[#F5E6D3] align-middle text-center">
                         {kind === 'empty' ? (
                           <span class="text-[#C9BBAE]">—</span>
                         ) : (
-                          <div class={`mx-auto max-w-[180px] rounded-xl px-3 py-3 ${tileClass[kind]}`}>
+                          <div class={`mx-auto max-w-[180px] rounded-lg md:rounded-xl px-0.5 py-2 md:px-3 md:py-3 ${tileClass[kind]}`}>
                             {cell.note && <div class="text-[11px] text-[#9A6B1E] mb-1">（{cell.note}）</div>}
-                            <div class={`font-bold leading-snug ${kind === 'special' ? 'text-sm' : 'text-lg'} ${labelColor[kind]}`}>{cell.label}</div>
-                            {cell.campus && <div class="text-xs font-semibold mt-1" style={`color:${campusColor(cell.campus)}`}>{cell.campus}</div>}
-                            {cell.time && <div class="text-xs text-[#8B6F5C] mt-0.5 whitespace-nowrap">{cell.time}</div>}
+                            <div class={`font-bold leading-snug ${kind === 'special' ? 'text-xs md:text-sm' : 'text-sm md:text-lg'} ${labelColor[kind]}`}>{cell.label}</div>
+                            {cell.campus && <div class="text-[11px] md:text-xs font-semibold mt-1" style={`color:${campusColor(cell.campus)}`}>{cell.campus}</div>}
+                            {cell.time && <div class="text-[11px] md:text-xs text-[#8B6F5C] mt-0.5 md:whitespace-nowrap">{cell.time}</div>}
                           </div>
                         )}
                       </td>
@@ -80,13 +80,13 @@ const campusColor = (name: string) =>
               ))}
 
               <tr class="bg-[#F5E6D3]/40">
-                <td class="py-4 px-3 border-t border-[#F5E6D3] text-center font-semibold text-[#4A3728]">
+                <td class="py-3 px-0.5 md:py-4 md:px-3 border-t border-[#F5E6D3] text-center text-xs md:text-base font-semibold text-[#4A3728]">
                   <div class="text-xl leading-none mb-1">📍</div>
                   院區地點
                 </td>
                 {data.schedule.map((d) => (
-                  <td class="py-4 px-2 border-t border-l border-[#F5E6D3] text-center font-semibold">
-                    <span class="inline-flex items-center gap-1.5 whitespace-nowrap" style={`color:${campusColor(d.location)}`}>
+                  <td class="py-3 px-0.5 md:py-4 md:px-2 border-t border-l border-[#F5E6D3] text-center text-[11px] md:text-base font-semibold">
+                    <span class="inline-flex flex-col md:flex-row items-center gap-1 md:gap-1.5 whitespace-nowrap" style={`color:${campusColor(d.location)}`}>
                       <span class="w-2.5 h-2.5 rounded-full" style={`background:${campusColor(d.location)}`}></span>
                       {d.location}
                     </span>
