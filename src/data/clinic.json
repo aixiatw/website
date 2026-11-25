@@ -1,5 +1,5 @@
 {
-  "title": "門診時間",
+  "title": "門診時刻表",
   "subtitle": "專業 · 用心 · 守護健康",
   "periods": [
     {
@@ -15,7 +15,7 @@
     {
       "key": "evening",
       "label": "黃昏",
-      "time": "17:30 – 20:30"
+      "time": "18:00 – 20:00"
     }
   ],
   "schedule": [
@@ -104,10 +104,9 @@
         "time": ""
       },
       "afternoon": {
-        "label": "骨盆腔長期疼痛特別聯合門診",
-        "campus": "進豐院區",
-        "time": "",
-        "note": "第二週五改為"
+        "label": "",
+        "campus": "",
+        "time": ""
       },
       "evening": {
         "label": "",
