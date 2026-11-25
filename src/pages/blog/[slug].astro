@@ -29,7 +29,6 @@ const { Content } = await render(post);
         <div class="p-8 md:p-12">
           <div class="flex items-center gap-3 mb-4">
             <span class="px-3 py-1 bg-[#D4856A]/10 text-[#D4856A] text-sm rounded-full">{post.data.category}</span>
-            <span class="text-[#8B6F5C] text-sm">{post.data.date.toLocaleDateString('zh-TW')}</span>
           </div>
           <h1 class="text-3xl md:text-4xl font-bold text-[#4A3728] mb-6">{post.data.title}</h1>
           <div class="prose prose-lg prose-stone max-w-none">
